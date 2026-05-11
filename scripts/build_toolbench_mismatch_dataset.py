@@ -13,8 +13,9 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET_DIR = ROOT / "data" / "datasets"
-DEFAULT_SOURCE_DIR = ROOT / "data" / "raw" / "toolbench" / "G1_answer"
+RAWDATA_DIR = ROOT / "rawdata"
+DATASET_DIR = ROOT / "dataset"
+DEFAULT_SOURCE_DIR = RAWDATA_DIR
 DEFAULT_OUTPUT = DATASET_DIR / "toolbench_mismatch_dataset.csv"
 
 FIELDNAMES = [
@@ -53,8 +54,18 @@ def parse_args() -> argparse.Namespace:
             "mismatch pairs sampled from the same observed ToolBench tool vocabulary."
         )
     )
-    parser.add_argument("--source-dir", type=Path, default=DEFAULT_SOURCE_DIR)
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--source-dir",
+        type=Path,
+        default=DEFAULT_SOURCE_DIR,
+        help="Directory containing the original ToolBench/ToolLLM JSON files. Defaults to ./rawdata.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT,
+        help="Output CSV path. Defaults to ./dataset/toolbench_mismatch_dataset.csv.",
+    )
     parser.add_argument(
         "--summary-output",
         type=Path,
@@ -227,7 +238,7 @@ def write_json(payload: dict[str, Any], output_path: Path) -> None:
 
 
 def iter_json_files(source_dir: Path) -> list[Path]:
-    return sorted(path for path in source_dir.glob("*.json") if path.is_file())
+    return sorted(path for path in source_dir.rglob("*.json") if path.is_file())
 
 
 def build_positive_rows(source_dir: Path) -> tuple[list[dict[str, str]], dict[str, dict[str, str]], dict[str, Any]]:
