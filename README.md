@@ -19,11 +19,6 @@
 
 실험 데이터는 GitHub Releases를 통해 공개합니다.
 
-Release에서 `toolbench_mismatch_dataset.csv`를 내려받은 뒤 아래 경로에 배치하면 노트북이 상대경로로 읽습니다.
-
-```text
-dataset/toolbench_mismatch_dataset.csv
-```
 
 ## 데이터셋 재생성
 
