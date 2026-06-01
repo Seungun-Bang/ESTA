@@ -7,6 +7,27 @@
 
 이 저장소는 논문 실험에 사용된 노트북과 데이터셋 생성 스크립트를 포함합니다.
 
+## 실행 환경
+
+아래 버전 조합에서 노트북 실행을 확인했습니다.
+
+- Python: `3.14.0`
+- CUDA: `12.6` (`torch` 빌드: `2.11.0+cu126`)
+- GPU: `NVIDIA GeForce GTX 1650 SUPER`
+- GPU를 사용할 수 없는 환경에서는 임베딩 계산이 CPU로 fallback됩니다.
+
+### 주요 패키지
+
+| 패키지 | 버전 |
+| --- | --- |
+| `pandas` | `3.0.2` |
+| `numpy` | `2.4.4` |
+| `scikit-learn` | `1.8.0` |
+| `matplotlib` | `3.10.8` |
+| `lightgbm` | `4.6.0` |
+| `sentence-transformers` | `5.3.0` |
+| `torch` | `2.11.0+cu126` |
+| `xgboost` | `3.2.0` |
 
 ## 구성
 
