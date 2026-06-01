@@ -55,3 +55,7 @@ dataset/toolbench_mismatch_dataset.csv
 ## 노트북 실행
 
 노트북은 저장소 기준 상대경로로 데이터셋을 찾습니다. 실행 결과는 `outputs/runs/` 아래에 저장됩니다.
+
+GitHub에서 노트북 미리보기가 표시되지 않는 경우 아래 링크를 통해 주석이 포함된 노트북을 Google Colab에서 열어볼 수 있습니다.
+
+[Google Colab에서 노트북 열기](https://colab.research.google.com/github/Seungun-Bang/ESTA/blob/main/notebooks/01_toolbench_mismatch_ratio_study_experiment_with_annotation.ipynb)
